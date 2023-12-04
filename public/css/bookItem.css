@@ -168,7 +168,60 @@ header .right-cont .nav-icons a {
     font-size: 16px;
     color: rgb(107, 107, 107);
 }
+footer {
+    height: 200px;
+    background-color: rgb(31, 31, 31);
+    display: flex;
+    align-items: center;
+    
+}
 
+footer .cols {
+    display: flex;
+    margin: 0 50px;
+    align-items: center;
+    width: 100%;
+    gap: 50px;
+    flex-grow: 1;
+}
+
+footer .cols .col {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    color: white;
+
+}
+footer .col ul {
+    list-style: none;
+    padding:0;
+}
+footer .col ul li{
+    margin: 10px 0;
+}
+
+
+footer .col ul a{
+    text-decoration: none;
+    color: #d9d9d9;
+}
+footer .col ul a:hover {
+    text-decoration: underline;
+}
+
+footer .cols .col .cont-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+footer .col .follow-us {
+    font-size: 30px;
+    font-weight: bold;
+}
+footer .col .social-icons img {
+    height: 50px;
+}
 
 @media (max-width: 768px) {
     .wrapper {

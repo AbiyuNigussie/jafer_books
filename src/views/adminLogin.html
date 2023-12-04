@@ -10,19 +10,21 @@
     <div class="cont">
       <h2>Admin login</h2>
       <div class="Admin">
-        <form action="">
+        <form action="../controllers/AuthController.php" method="POST">
           <br />
           <label for="username">username</label><br />
           <input
             type="text"
             placeholder="please enter a username"
             class="input"
+            name="username"
           /><br />
           <label for="password">password</label><br />
           <input
             type="password"
             placeholder="please enter a password"
             class="input"
+            name="password"
           /><br /><br />
           <button class="btn">Login</button><br /><br />
         </form>

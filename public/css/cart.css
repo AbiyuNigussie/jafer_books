@@ -1,13 +1,3 @@
-html,
-body {
-  height: 100%;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-}
-
 header {
   position: sticky;
   left: 0;
@@ -77,38 +67,69 @@ header .right-cont .nav-icons {
 header .right-cont .nav-icons a {
   color: white;
 }
-.wrapper {
-  display: flex;
-  gap: 50px;
-  justify-content: center;
-  background-color: #d9d9d9;
-  padding: 50px;
-}
 
-.cont {
-  width: 100%;
-  padding: 20px;
+#book-desk {
+  flex-grow: 1;
+}
+#main {
+  width: 65%;
+  height: 700px;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
   background-color: white;
-  width: 100%;
 }
-.A {
-  display: flex;
-  justify-content: space-between;
+#book {
+  margin-bottom: 90px;
 }
-.im {
-  height: 200px;
+#book1 {
+  margin-bottom: 90px;
+}
+body {
+  background-color: rgb(211, 207, 207);
+  margin: 0;
+}
+/* div{background-color: white;                     
+} */
+.remove-icon {
+  cursor: pointer;
+  position: absolute;
+  top: 155px;
+  right: 40%;
+  padding: 5px;
+}
+.remove-icon1 {
+  cursor: pointer;
+  position: absolute;
+  top: 340px;
+  right: 40%;
+  padding: 5px;
+}
+.remove-icon2 {
+  cursor: pointer;
+  position: absolute;
+  top: 500px;
+  right: 40%;
+  padding: 7px;
+}
+#check-button {
+  background-color: rgb(9, 139, 9);
+  border: none;
+  width: 40%;
+  height: 30px;
+  color: white;
+  margin-bottom: 5px;
+}
+#checkout {
   width: 30%;
+  border-radius: 5px;
+  text-align: center;
+  margin-left: 970px;
+  margin-top: -41.3em;
+  word-spacing: 10px;
+  background-color: white;
 }
-.abt {
-  height: 200px;
-  width: 60%;
-}
-.cont h2 {
-  margin-bottom: 10px;
-}
-
 footer {
-  height: 200px;
+  height: 300px;
   background-color: rgb(31, 31, 31);
   display: flex;
   align-items: center;

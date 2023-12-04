@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../../public/css/bookItem.css" />
+    <link rel="stylesheet" href="../../public/css/cart.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
@@ -11,9 +11,8 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <title>Book Item | Jafer Books</title>
-  </head>
-  <body>
+    <title>Cart | Jafer Books</title>
+
     <header>
       <div class="left-cont">
         <div class="logo">
@@ -44,52 +43,51 @@
         </div>
       </div>
     </header>
-    <div class="wrapper">
-      <main>
-        <div class="imgWrapper">
-          <img src="../../public/images/bookCoverOne.jpg" alt="book cover" />
-          <div class="add-to-cart-div">
-            <button>Add to cart</button>
-          </div>
-        </div>
+  </head>
 
-        <div class="book-details-wrapper">
-          <div class="book-title">
-            <span>Adaptive Web Design</span>
-          </div>
-          <div class="spec-col">
-            <div class="author-name">
-              <span>By: Aaron Gustafson</span>
-            </div>
-            <div class="price-div">
-              <span>450 ETB</span>
-            </div>
-            <div class="quantity-div">
-              <label for="">Quantity </label><input type="number" />
-            </div>
-            <div class="book-description">
-              <span
-                >Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                Libero omnis animi voluptas voluptates non labore velit deleniti
-                rem sint esse? Alias incidunt deserunt reprehenderit suscipit
-                quia dolore earum, aliquid asperiores. Facere dignissimos
-                laudantium temporibus saepe earum illum! Fugiat dolorem
-                molestias ratione voluptatem dolores nisi quis provident nobis
-                quas animi! Totam quisquam et voluptatibus ab debitis quidem a
-                facere porro necessitatibus? Ipsum temporibus consequuntur optio
-                fugiat suscipit alias delectus reprehenderit deleniti
-                voluptatibus id, molestiae dignissimos provident voluptatum,
-                beatae quibusdam! Tempora delectus, quisquam ea accusamus non
-                accusantium assumenda molestiae voluptatem ullam dolor! Nihil
-                quaerat eius possimus magnam. Temporibus voluptatibus vel
-                quaerat commodi illum. Debitis voluptatibus nisi ad fugit
-                expedita quos atque porro dolor eveniet amet, magni quis saepe,
-                consequuntur dicta quisquam in!</span
-              >
-            </div>
-          </div>
+  <body>
+    <div id="main">
+      <div>
+        <h1>MY BOOK</h1>
+      </div>
+      <div id="book">
+        <h2>Book Title</h2>
+        <!-- <img src="imgg/images (2).png" style="width: 50px; height: 60px; "> -->
+        <div id="book-desc">
+          <p>This is a brief discription of the book</p>
+          <p>ETB 150.50</p>
+          <p>Qty:2</p>
         </div>
-      </main>
+      </div>
+      <div class="remove-icon" onclick="removeBook(this)">X</div>
+      <div id="book1">
+        <h2>Book Title</h2>
+        <!-- <img src="imgg/images (2).png" style="width: 50px; height: 60px; "> -->
+        <p>This is a brief discription of the book</p>
+        <p>ETB 150.50</p>
+        <p>Qty:2</p>
+      </div>
+      <div class="remove-icon1" onclick="removeBook(this)">X</div>
+      <div>
+        <h2>Book Title</h2>
+        <!-- <img src="imgg/images (2).png" style="width: 50px; height: 60px; "> -->
+        <p>This is a brief discription of the book</p>
+        <p>ETB 150.50</p>
+        <p>Qty:2</p>
+      </div>
+      <div class="remove-icon2" onclick="removeBook(this)">X</div>
+      <div id="checkout">
+        <h2>Total</h2>
+        <hr />
+        <p>sub total</p>
+        <p>ETB 450.50</p>
+        <p>tax %</p>
+        <p>ETB 120.40</p>
+        <p>Delivery</p>
+        <p>ETB 55.50</p>
+        <hr />
+        <button id="check-button">CHECKOUT</button>
+      </div>
     </div>
     <footer>
       <div class="cols">

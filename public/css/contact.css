@@ -88,86 +88,96 @@ header .right-cont .nav-icons a {
     padding: 50px;
 }
 
-.wrapper .categories-cont {
-    width: 22%;
+.container {
     background-color: #fff;
-    height: 100%;
+    width: 100%;
+    display: flex;
+    gap: 35px;
     border-radius: 7px;
-}
+    padding: 30px 0 50px 0;
 
-.wrapper .categories-cont .title-cont {
-    text-align: center;
-    font-size: 16px;
-    border-bottom: 2px solid lightgray;
 }
-.wrapper .categories-cont .list-cont {
-    padding: 10px 0;
+.container .col-one {
+    display: flex; 
+    flex-direction: column;
+    padding: 20px;
+    flex-grow: 1;
 }
-.wrapper .categories-cont .list-cont ul {
+.container .col-two {
+    padding: 20px;
+    color: rgb(31, 31, 31, .75);
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
-    gap: 5px;
-    list-style: none;
-    margin: 0 25px;
-    padding: 0;
-}
 
-.wrapper .categories-cont .list-cont ul li a {
-    color: black;
-    text-decoration: none;
-}
-.wrapper .categories-cont .list-cont ul li a:hover {
-    text-decoration:underline;
-}
+    
 
-
-.wrapper .main-cont {
-    padding: 20px 20px;
-    width: 78%;
-    height: 100%;
-    background-color: white;
-    border-radius: 7px;
+}
+.container .col-two .info  {
     display: flex;
     flex-direction: column;
-    gap: 50px;
-}
-
-.wrapper .main-cont .row {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-}
-.wrapper .main-cont .row .title-cont {
-    font-size: 20px;
-}
-
-.wrapper .main-cont .row .books-list-cont {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 30px;
-}
-.wrapper .main-cont .row .books-list-cont .book-item {
-    display: flex;
-    flex-direction: column;
-    gap: 7px;
-    text-decoration: none;
-    color: #353535;
-}
-
-.wrapper .main-cont .row .books-list-cont .book-item .img-cont{
-    height: 250px;
-}
-.wrapper .main-cont .row .books-list-cont .book-item .img-cont img{
-    height: 100%;
-}
-
-.wrapper .main-cont .row .books-list-cont .book-item .book-title{
+    gap: 10px;
     font-size: 18px;
 }
 
-.wrapper .main-cont .row .books-list-cont .book-item .book-author{
-    
+.container .col-two .map-cont  {
+    margin-top: 30px;
+    display: flex;
+}
+.container .col-two h2 {
+    font-size: 24px;
+    padding: 5px 0;
+    border-bottom: 1px solid rgb(31, 31, 31, .25);
+
+
+}
+.container .col-one h1 {
+    font-size: 24px;
+    padding: 5px 0;
+    border-bottom: 1px solid rgb(31, 31, 31, .25);
+
+}
+.container .col-one form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+}
+
+.container .col-one form div {
+    display: flex;
+    flex-direction: column;
+    max-width: 450px;
+    gap: 5px;
+}
+
+.container .col-one form label {
+    font-size: 18px;
+}
+
+.container .col-one form input {
+    max-width: 450px;
+    border-radius: 4px;
+    padding: 10px;
+    outline: none;
+    font-size: 16px;
+    color: rgb(31, 31, 31, .75);
+    border: 1px solid rgb(53, 53, 53, .25);
+}
+.container .col-one form input[type='submit'] {
+    background-color: cornflowerblue;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+}
+.container .col-one form input[type='submit']:hover{
+    background-color: lightgreen;
+}
+
+.container .col-one form textarea {
+    border: 1px solid rgb(53, 53, 53, .25);
+    outline: none;
 }
 footer {
     height: 200px;
