@@ -79,7 +79,6 @@ header .right-cont .nav-icons a {
 }
 .wrapper {
   display: flex;
-  gap: 50px;
   justify-content: center;
   background-color: #d9d9d9;
   padding: 50px;
