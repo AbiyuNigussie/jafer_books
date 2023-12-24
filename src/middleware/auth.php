@@ -3,7 +3,7 @@ session_start();
 if (($_SERVER["REQUEST_METHOD"] == "POST")) {
 
     include "../connection/db_connection.php";
-    include "../Validation/adminValidation.php";
+    include "../Validation/Validation.php";
 
     $email = $_POST['email'];
     $password = $_POST['password'];

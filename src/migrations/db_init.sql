@@ -14,7 +14,7 @@ CREATE TABLE Authors (
 );
 
 CREATE TABLE Books(
-	BookID INT PRIMARY KEY,
+	BookID INT PRIMARY KEY AUTO_INCREMENT,
     Title varchar(255),
     AuthorID INT,
     CategoryID INT,
@@ -55,7 +55,7 @@ CREATE TABLE Orders (
 );
 
 CREATE TABLE OrderDetails (
-    OrderDetailID INT PRIMARY KEY,
+    OrderDetailID INT PRIMARY KEY AUTO_INCREMENT,
     OrderID INT,
     BookID INT,
     Quantity INT,
@@ -70,3 +70,18 @@ CREATE TABLE admin (
     Password VARCHAR(255) NOT NULL,
     Email VARCHAR(100) NOT NULL
 );
+
+INSERT INTO Categories (CategoryName, Description)
+VALUES
+    ('Fiction', 'Books that tell imaginative stories'),
+    ('Non-Fiction', 'Books based on real events and facts'),
+    ('Science Fiction', 'Books that explore futuristic concepts and technology'),
+    ('Mystery', 'Books centered around solving a mystery or crime'),
+    ('Biography', 'Books detailing the life of a real person'),
+    ('Self-Help', 'Books providing advice and strategies for personal development'),
+    ('History', 'Books that narrate historical events and periods'),
+    ('Romance', 'Books focused on romantic relationships'),
+    ('Fantasy', 'Books set in fantastical worlds with magical elements'),
+    ('Thriller', 'Books designed to keep readers on the edge of their seats');
+    
+INSERT INTO admin (Username, Password, Email) values ('admin', '$2y$10$BCS9Teugp/tU6ZHapqznn.plIxzB.sKFBsL4H6eYpQSDWHv96UByy','testadmin@jafer.com');

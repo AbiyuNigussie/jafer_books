@@ -9,4 +9,5 @@ function isEmpty($var, $text, $location, $ms, $data)
         header("Location: $location?$ms=$em&$data");
         exit;
     }
+    return 0;
 }

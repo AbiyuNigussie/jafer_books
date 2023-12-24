@@ -143,6 +143,15 @@ body {
   border-radius: 4px;
 }
 
+.lright textarea {
+  width: 50%;
+  padding: 10px;
+  margin-top: 5px;
+  font-size: 14px;
+  border: 1px solid lightgray;
+  border-radius: 4px;
+}
+
 .lright input[type="file"] {
   margin-top: 5px;
   font-size: 14px;
@@ -260,4 +269,38 @@ body {
   width: 70px;
   padding-bottom: 10px;
   padding-left: 5px;
+}
+
+select {
+  appearance: none; /* Remove default arrow icon in some browsers */
+  -webkit-appearance: none; /* For older versions of Chrome and Safari */
+  -moz-appearance: none; /* For older versions of Firefox */
+
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  width: 50%;
+}
+
+select::after {
+  content: "\25BC"; /* Unicode character for a down-pointing triangle */
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  font-size: 14px;
+  pointer-events: none;
+}
+
+select option {
+  padding: 10px;
+  font-size: 16px;
+  background-color: #fff;
+  color: #333;
+}
+
+select option:checked {
+  background-color: #e0e0e0;
 }

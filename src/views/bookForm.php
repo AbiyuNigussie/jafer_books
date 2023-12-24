@@ -1,0 +1,142 @@
+<?php
+session_start();
+
+if (isset($_SESSION['userId']) && isset($_SESSION['userEmail'])) {
+
+  include '../connection/db_connection.php';
+  include '../models/category.php';
+  include '../models/author.php';
+
+  $categories = getAllCategories($conn);
+  $authors = getAllAuthors($conn);
+
+
+  if (isset($_GET['categoryId'])) {
+    $categoryId = $_GET['categoryId'];
+  } else $categoryId = 0;
+  if (isset($_GET['authorId'])) {
+    $author_id = $_GET['authorId'];
+  } else $authorId = 0;
+}
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book Form | Jafer Books</title>
+  <link rel="stylesheet" href="../../public/css/bookForm.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <main>
+    <div class="left">
+      <div class="uleft">
+        <div class="uuleft">
+          <i class="fa-solid fa-user"></i> <a> Mr. Someone </a>
+        </div>
+        <div class="luleft">
+          <a href="#"> <i class="fa-solid fa-layer-group"></i> Dashboard </a>
+          <a href="./adminBooks.html">
+            <i class="fa-solid fa-book"></i> Books
+          </a>
+          <a href="#"> <i class="fa-solid fa-cart-shopping"></i>Order </a>
+          <a href="#"> <i class="fa-solid fa-users"></i> Users </a>
+        </div>
+      </div>
+      <div class="lleft">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        <a href="./adminLogin"> Logout </a>
+      </div>
+    </div>
+    <div class="right">
+      <div class="uright">
+        <p><i class="fa-solid fa-list"></i> Books</p>
+      </div>
+      <div class="lright">
+        <div class="midu">
+          <div class="umid">
+            <p class="p1">Book Form</p>
+          </div>
+          <div class="lmid">
+            <form id="bookForm" action="../controllers/addBook.php" method="POST" enctype="multipart/form-data">
+              <label for="title">Title</label>
+              <input type="text" id="title" name="title" />
+
+              <label for="author">Author</label>
+              <select name="author">
+                <option value="0">Select author</option>
+                <?php
+                if ($authors == 0) {
+                } else {
+                  foreach ($authors as $author) {
+                    $name = $author['FirstName'] . " " . $author['LastName'];
+                    if ($authorId == $author['AuthorID']) { ?>
+                      <option selected value="<?= $author['AuthorID'] ?>">
+                        <?= $name ?>
+                      </option>
+                    <?php } else { ?>
+                      <option value="<?= $author['AuthorID'] ?>">
+                        <?= $name ?>
+                      </option>
+                <?php }
+                  }
+                }
+                ?>
+              </select>
+              <label for="category">Category</label>
+              <select name="category">
+                <option value="0">Select category</option>
+                <?php
+                if ($categories == 0) {
+                } else {
+                  foreach ($categories as $category) {
+                    if ($categoryId == $category['CategoryID']) { ?>
+                      <option selected value="<?= $category['CategoryID'] ?>">
+                        <?= $category['CategoryName'] ?>
+                      </option>
+                    <?php } else { ?>
+                      <option value="<?= $category['CategoryID'] ?>">
+                        <?= $category['CategoryName'] ?>
+                      </option>
+                <?php }
+                  }
+                }
+                ?>
+
+
+              </select>
+              <label for="pubDate">Publication Date</label>
+              <input type="date" id="pubDate" name="pubDate" />
+              <label for="pages">Pages</label>
+              <input type="number" id="pages" name="pages" />
+              <label for="description">Description</label>
+              <textarea type="text" id="description" name="description" rows="5">
+              </textarea>
+              <label for="price">Price</label>
+              <input type="text" id="price" name="price" />
+
+              <label for="quantity">Stock Quantity</label>
+              <input type="text" id="quantity" name="quantity" />
+
+              <label for="cover">Cover Image</label>
+              <input type="file" id="cover" name="cover" accept="image/*" />
+
+              <div class="xr">
+                <button type="submit">
+                  <i class="fa-solid fa-check"></i> Add Book
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+
+</html>
