@@ -111,7 +111,6 @@ body {
 
 .lright {
   clear: left;
-  height: 90%;
   width: 100%;
   background-color: lightgrey;
   display: flex;
@@ -195,6 +194,7 @@ body {
   width: 92%;
   background-color: white;
   border-radius: 8px;
+  margin: 30px 0;
 }
 .umid {
   float: left;
