@@ -13,6 +13,10 @@ CREATE TABLE Authors (
     LastName VARCHAR(255)
 );
 
+
+
+
+
 CREATE TABLE Books(
 	BookID INT PRIMARY KEY AUTO_INCREMENT,
     Title varchar(255),
@@ -30,6 +34,9 @@ CREATE TABLE Books(
     FOREIGN KEY (AuthorID) REFERENCES Authors(AuthorID),
     FOREIGN KEY (CategoryID) REFERENCES Categories(CategoryID)
 );
+
+
+
 
 CREATE TABLE Customers (
     CustomerID INT PRIMARY KEY,
