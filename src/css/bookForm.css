@@ -261,6 +261,7 @@ body {
   margin-top: 15px;
   margin-left: 7px;
   display: flex;
+  gap: 20px;
 }
 .boo i {
   font-size: 28px;
@@ -305,6 +306,10 @@ select option {
 
 select option:checked {
   background-color: #e0e0e0;
+}
+
+.xr button[type="reset"] {
+  background-color: dodgerblue;
 }
 
 .successDiv {

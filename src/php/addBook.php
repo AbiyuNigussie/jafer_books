@@ -18,6 +18,7 @@ if (isset($_SESSION['userId']) && isset($_SESSION['userEmail'])) {
         isset($_POST['quantity']) &&
         isset($_FILES['cover'])
     ) {
+        $bookId = $_POST['bookId'];
         $title = $_POST['title'];
         $author = $_POST['author'];
         $category = $_POST['category'];
@@ -27,6 +28,12 @@ if (isset($_SESSION['userId']) && isset($_SESSION['userEmail'])) {
         $price = $_POST['price'];
         $quantity = $_POST['quantity'];
         $userInput = 'title=' . $title . '&categoryId=' . $category . '&desc=' . $description . '&price=' . $price . '&quantity=' . $quantity . '$authorId=' . $author;
+
+        $text = "Book ID";
+        $location = "../addBook.php";
+        $ms = "error";
+        isEmpty($bookId, $text, $location, $ms, $userInput);
+        isBookId($bookId, $text, $location, $ms, $userInput);
 
         $text = "Book title";
         $location = "../addBook.php";

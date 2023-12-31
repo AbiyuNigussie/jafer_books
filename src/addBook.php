@@ -77,6 +77,8 @@ if (isset($_SESSION['userId']) && isset($_SESSION['userEmail'])) {
             </div>
             <div class="lmid">
               <form id="bookForm" action="php/addBook.php" method="POST" enctype="multipart/form-data">
+                <label for="bookId">Book ID</label>
+                <input type="text" id="bookId" name="bookId" />
                 <label for="title">Title</label>
                 <input type="text" id="title" name="title" />
 
@@ -142,6 +144,9 @@ if (isset($_SESSION['userId']) && isset($_SESSION['userEmail'])) {
                 <div class="xr">
                   <button type="submit">
                     <i class="fa-solid fa-check"></i> Add Book
+                  </button>
+                  <button type="reset">
+                    <i class="fa-solid fa-file"></i> New
                   </button>
                 </div>
               </form>

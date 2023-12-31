@@ -18,7 +18,7 @@ CREATE TABLE Authors (
 
 
 CREATE TABLE Books(
-	BookID INT PRIMARY KEY AUTO_INCREMENT,
+	BookID INT PRIMARY KEY,
     Title varchar(255),
     AuthorID INT,
     CategoryID INT,
