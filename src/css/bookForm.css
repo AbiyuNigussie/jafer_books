@@ -92,6 +92,8 @@ body {
   height: 10%;
   width: 100%;
   background-color: white;
+  display: flex;
+  justify-content: space-between;
 }
 .uright p {
   margin-left: 30px;
@@ -303,4 +305,58 @@ select option {
 
 select option:checked {
   background-color: #e0e0e0;
+}
+
+.successDiv {
+  position: fixed;
+  top: 10px;
+  right: -100%;
+  margin: 5px;
+  padding: 8px 10px;
+  height: 40px;
+  font-size: 16px;
+  color: white;
+  background-color: #4caf50;
+  border-radius: 5px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.5s ease-in-out;
+}
+
+.errorDiv {
+  position: fixed;
+  top: 10px;
+  right: -100%;
+  margin: 5px;
+  padding: 8px 10px;
+  height: 40px;
+  font-size: 16px;
+  color: white;
+  background-color: #c20000;
+  border-radius: 5px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.5s ease-in-out;
+}
+
+.successDiv.close,
+.errorDiv.close {
+  transform: translateX(100%);
+  opacity: 0;
+}
+.successDiv.visible,
+.errorDiv.visible {
+  right: 20px;
+}
+
+.successDiv i,
+.errorDiv i {
+  cursor: pointer;
+  position: absolute;
+  top: 5px;
+  right: 5px;
 }

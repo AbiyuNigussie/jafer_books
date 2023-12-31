@@ -3,18 +3,18 @@ session_start();
 if (($_SERVER["REQUEST_METHOD"] == "POST")) {
 
     include "../connection/db_connection.php";
-    include "../Validation/Validation.php";
+    include "../utility/validation.php";
 
     $email = $_POST['email'];
     $password = $_POST['password'];
 
     $text = "Email";
-    $location = "../views/adminLogin.php";
+    $location = "../adminLogin.php";
     $message = "error";
     isEmpty($email, $text, $location, $message, "");
 
     $text = "Password";
-    $location = "../views/adminLogin.php";
+    $location = "../adminLogin.php";
     $message = "error";
     isEmpty($password, $text, $location, $message, "");
 
@@ -39,19 +39,19 @@ if (($_SERVER["REQUEST_METHOD"] == "POST")) {
             if (password_verify($password, $userPassword)) {
                 $_SESSION['userId'] = $userId;
                 $_SESSION['userEmail'] = $userEmail;
-                header("Location: ../views/adminBooks.php");
+                header("Location: ../adminBooks.php");
             } else {
                 $em = "Incorrect User name or password";
-                header("Location: ../views/adminLogin.php?error=$em");
+                header("Location: ../adminLogin.php?error=$em");
             }
         } else {
             $em = "Incorrect User name or password";
-            header("Location: ../views/adminLogin.php?error=$em");
+            header("Location: ../adminLogin.php?error=$em");
         }
     } else {
         $em = "Incorrect User name or password";
-        header("Location: ../views/adminLogin.php?error=$em");
+        header("Location: ../adminLogin.php?error=$em");
     }
 } else {
-    header("Location: ../views/adminlogin.php");
+    header("Location: ../adminlogin.php");
 }

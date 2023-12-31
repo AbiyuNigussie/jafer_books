@@ -4,7 +4,7 @@ session_start();
 if (isset($_SESSION['userId']) && isset($_SESSION['userEmail'])) {
 
     include '../connection/db_connection.php';
-    include '../Validation/Validation.php';
+    include '../utility/validation.php';
     include '../utility/fileUpload.php';
 
     if (
@@ -29,42 +29,42 @@ if (isset($_SESSION['userId']) && isset($_SESSION['userEmail'])) {
         $userInput = 'title=' . $title . '&categoryId=' . $category . '&desc=' . $description . '&price=' . $price . '&quantity=' . $quantity . '$authorId=' . $author;
 
         $text = "Book title";
-        $location = "../views/bookForm.php";
+        $location = "../addBook.php";
         $ms = "error";
         isEmpty($title, $text, $location, $ms, $userInput);
 
         $text = "Book description";
-        $location = "../views/bookForm.php";
+        $location = "../addBook.php";
         $ms = "error";
         isEmpty($description, $text, $location, $ms, $userInput);
 
         $text = "Book author";
-        $location = "../views/bookForm.php";
+        $location = "../addBook.php";
         $ms = "error";
         isEmpty($author, $text, $location, $ms, $userInput);
 
         $text = "Book category";
-        $location = "../views/bookForm.php";
+        $location = "../addBook.php";
         $ms = "error";
         isEmpty($category, $text, $location, $ms, $userInput);
 
         $text = "Publcation Date";
-        $location = "../views/bookForm.php";
+        $location = "../addBook.php";
         $ms = "error";
         isEmpty($pubDate, $text, $location, $ms, $userInput);
 
         $text = "Book Pages";
-        $location = "../views/bookForm.php";
+        $location = "../addBook.php";
         $ms = "error";
         isEmpty($pages, $text, $location, $ms, $userInput);
 
         $text = "Book Price";
-        $location = "../views/bookForm.php";
+        $location = "../addBook.php";
         $ms = "error";
         isEmpty($price, $text, $location, $ms, $userInput);
 
         $text = "Book Quantity";
-        $location = "../views/bookForm.php";
+        $location = "../addBook.php";
         $ms = "error";
         isEmpty($quantity, $text, $location, $ms, $userInput);
 
@@ -75,7 +75,7 @@ if (isset($_SESSION['userId']) && isset($_SESSION['userEmail'])) {
 
         if ($bookCover['status'] == "error") {
             $em = $bookCover['data'];
-            header("Location: ../booForm.php?error=$em&$userInput");
+            header("Location: ../addBook.php?error=$em&$userInput");
             exit();
         } else {
             $bookCoverUrl = $bookCover['data'];
@@ -97,14 +97,14 @@ if (isset($_SESSION['userId']) && isset($_SESSION['userEmail'])) {
 
             if ($res) {
                 $sm = "The book succcessfully created!";
-                header("Location: ../views/bookForm.php?success=$sm");
+                header("Location: ../addBook.php?success=$sm");
             } else {
                 $em = "Unknown Error Ocurred!";
-                header("Location: ../views/bookForm.php?error=$em");
+                header("Location: ../addBook.php?error=$em");
                 exit();
             }
         }
     } else {
-        header("Location ../views/adminLogin.php");
+        header("Location ../adminLogin.php");
     }
 }

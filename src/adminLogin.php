@@ -13,7 +13,7 @@ if (
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin Login | JaferBooks</title>
-    <link rel="stylesheet" href="../../public/css/adminLogin.css" />
+    <link rel="stylesheet" href="css/adminLogin.css" />
   </head>
 
   <body>
@@ -29,7 +29,7 @@ if (
           </div>
 
         <?php } ?>
-        <form action="../middleware/auth.php" method="POST">
+        <form action="middleware/auth.php" method="POST">
           <br />
           <label for="username">email</label><br />
           <input type="text" placeholder="please enter a email" class="input" name="email" /><br />
