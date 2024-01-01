@@ -4,11 +4,22 @@ body {
   background-color: lightgray;
 }
 .left {
+  position: fixed;
+  left: -100%;
   float: left;
   width: 20%;
   height: 95vh;
   background-color: black;
   position: fixed;
+  transition: all 0.5s ease-in-out;
+}
+
+.left.visible {
+  left: 0;
+}
+.left.close {
+  transform: translateX(100%);
+  opacity: 0;
 }
 
 .uleft {
@@ -83,7 +94,7 @@ body {
 
 .right {
   float: right;
-  width: 80%;
+  width: 100%;
   height: 100vh;
   background-color: lightgray;
 }
@@ -162,7 +173,7 @@ i.fa-square-xmark:hover {
   background-color: white;
   display: flex;
   align-items: flex-start;
-  gap: 114px;
+  /* gap: 114px; */
   padding-bottom: 10px;
 }
 .ulmid p {
@@ -171,6 +182,7 @@ i.fa-square-xmark:hover {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   color: black;
   text-align: center;
+  flex-grow: 1;
 }
 .llmid {
   clear: left;
@@ -184,26 +196,31 @@ i.fa-square-xmark:hover {
   height: 80px;
   width: 100%;
   margin-top: 10px;
-  padding-left: 10px;
   padding-bottom: 20px;
+  border-bottom: 1px solid lightgray;
   display: flex;
-  gap: 114px;
+  align-items: center;
 }
 .content p {
-  width: 60px;
-  height: 10px;
-  font-size: 20px;
+  flex-grow: 1;
+  font-size: 16px;
   text-align: start;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   color: black;
+  text-align: center;
+  max-width: 14.2%;
 }
 .content img {
   text-align: center;
   width: 70px;
 }
+.content div {
+  flex-grow: 1;
+  text-align: center;
+  max-width: 14.3%;
+}
 .content i {
   align-items: baseline;
-  margin-top: 20px;
 }
 
 .successDiv {
@@ -258,4 +275,13 @@ i.fa-square-xmark:hover {
   position: absolute;
   top: 5px;
   right: 5px;
+}
+
+.left #closeIcon2 {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
 }

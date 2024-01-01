@@ -41,15 +41,15 @@ if (($_SERVER["REQUEST_METHOD"] == "POST")) {
                 $_SESSION['userEmail'] = $userEmail;
                 header("Location: ../adminBooks.php");
             } else {
-                $em = "Incorrect User name or password";
+                $em = "Incorrect username or password";
                 header("Location: ../adminLogin.php?error=$em");
             }
         } else {
-            $em = "Incorrect User name or password";
+            $em = "Incorrect username or password";
             header("Location: ../adminLogin.php?error=$em");
         }
     } else {
-        $em = "Incorrect User name or password";
+        $em = "Incorrect username or password";
         header("Location: ../adminLogin.php?error=$em");
     }
 } else {

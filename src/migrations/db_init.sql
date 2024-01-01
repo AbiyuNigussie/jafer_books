@@ -18,14 +18,11 @@ CREATE TABLE Authors (
 
 
 CREATE TABLE Books(
-	BookID INT PRIMARY KEY,
+	BookID varchar(10) PRIMARY KEY,
     Title varchar(255),
     AuthorID INT,
     CategoryID INT,
     PublicationDate DATE,
-    Publisher VARCHAR(255),
-    Edition VARCHAR(50),
-    Language VARCHAR(50),
     Pages INT,
     Description TEXT,
     Price Decimal(10, 2),
@@ -64,7 +61,7 @@ CREATE TABLE Orders (
 CREATE TABLE OrderDetails (
     OrderDetailID INT PRIMARY KEY AUTO_INCREMENT,
     OrderID INT,
-    BookID INT,
+    BookID VARCHAR(10),
     Quantity INT,
     Subtotal DECIMAL(10, 2),
     FOREIGN KEY (OrderID) REFERENCES Orders(OrderID),

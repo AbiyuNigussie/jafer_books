@@ -155,7 +155,7 @@ if (isset($_SESSION['userId']) && isset($_SESSION['userEmail'])) {
         </div>
       </div>
     </main>
-    <script src="js/messageHandler.js"></script>
+    <script src="js/script.js"></script>
 
   </body>
 <?php } else {

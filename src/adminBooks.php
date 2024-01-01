@@ -35,7 +35,8 @@ if (isset($_SESSION['userId']) && isset($_SESSION['userEmail'])) {
 
     <body>
         <main>
-            <div class="left">
+            <div class="left" id="sideBar">
+                <i class="fa-solid fa-close " id="closeIcon2"></i>
                 <div class="uleft">
                     <div class="uuleft">
                         <i class="fa-solid fa-user"></i> <a>
@@ -67,7 +68,7 @@ if (isset($_SESSION['userId']) && isset($_SESSION['userEmail'])) {
             <div class="right">
                 <div class="uright">
                     <p>
-                        <i class="fa-solid fa-list"></i> Books
+                        <i class="fa-solid fa-list" id="burgerNav"></i> Books
                     </p>
                     <?php
                     if (isset($_GET['success'])) { ?>
@@ -126,7 +127,7 @@ if (isset($_SESSION['userId']) && isset($_SESSION['userEmail'])) {
                                 ?>
                                         <div class="content" id="page">
                                             <p><?php echo $Bookid; ?></p>
-                                            <img src="../uploads/cover/<?php echo $BookC; ?>">
+                                            <div><img src="../uploads/cover/<?php echo $BookC; ?>"></div>
                                             <p><?php echo $BookT; ?></p>
                                             <p><?php echo $AuthorFN; ?></p>
                                             <p><?php echo $P; ?></p>
@@ -161,7 +162,7 @@ if (isset($_SESSION['userId']) && isset($_SESSION['userEmail'])) {
             </div>
 
         </main>
-        <script src="js/messageHandler.js"></script>
+        <script src="js/script.js"></script>
     </body>
 <?php } else {
     header("Location: adminLogin.php");

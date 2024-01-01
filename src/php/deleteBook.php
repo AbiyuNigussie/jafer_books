@@ -29,7 +29,7 @@ if (
 
             $sql2 = "DELETE FROM books WHERE BookID = ?";
             $stmt2 = mysqli_prepare($conn, $sql2);
-            mysqli_stmt_bind_param($stmt2, "i", $id);
+            mysqli_stmt_bind_param($stmt2, "s", $id);
             $res = mysqli_stmt_execute($stmt2);
 
             if ($res) {

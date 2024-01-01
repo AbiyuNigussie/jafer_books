@@ -8,6 +8,7 @@ if (isset($_SESSION['userId']) && isset($_SESSION['userEmail'])) {
     include '../utility/fileUpload.php';
 
     if (
+        isset($_POST['bookId']) &&
         isset($_POST['title']) &&
         isset($_POST['author']) &&
         isset($_POST['category']) &&
@@ -27,7 +28,7 @@ if (isset($_SESSION['userId']) && isset($_SESSION['userEmail'])) {
         $description = $_POST['description'];
         $price = $_POST['price'];
         $quantity = $_POST['quantity'];
-        $userInput = 'title=' . $title . '&categoryId=' . $category . '&desc=' . $description . '&price=' . $price . '&quantity=' . $quantity . '$authorId=' . $author;
+        $userInput = 'bookId=' . $bookId . 'title=' . $title . '&categoryId=' . $category . '&desc=' . $description . '&price=' . $price . '&quantity=' . $quantity . '$authorId=' . $author;
 
         $text = "Book ID";
         $location = "../addBook.php";
@@ -87,6 +88,7 @@ if (isset($_SESSION['userId']) && isset($_SESSION['userEmail'])) {
         } else {
             $bookCoverUrl = $bookCover['data'];
             $sql = "INSERT INTO books(
+                BookID,
                 Title,
                 AuthorID,
                 CategoryID,
@@ -96,10 +98,10 @@ if (isset($_SESSION['userId']) && isset($_SESSION['userEmail'])) {
                 Price,
                 QuantityAvailable,
                 CoverImageURL
-                ) values(?,?,?,?,?,?,?,?,?);";
+                ) values(?,?,?,?,?,?,?,?,?,?);";
 
             $stmt = mysqli_prepare($conn, $sql);
-            mysqli_stmt_bind_param($stmt, "siisssdis", $title, $author, $category, $pubDate, $pages, $description, $price, $quantity, $bookCoverUrl);
+            mysqli_stmt_bind_param($stmt, "ssiisisdis", $bookId, $title, $author, $category, $pubDate, $pages, $description, $price, $quantity, $bookCoverUrl);
             $res = mysqli_stmt_execute($stmt);
 
             if ($res) {
