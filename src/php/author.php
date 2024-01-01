@@ -12,3 +12,21 @@ function getAllAuthors($conn)
     }
     return $authors;
 }
+
+function getAuthorById($conn, $authId)
+{
+    $sql = "SELECT * FROM authors WHERE AuthorID=?";
+    $stmt = mysqli_prepare($conn, $sql);
+    mysqli_stmt_bind_param($stmt, 'i', $authId);
+    mysqli_stmt_execute($stmt);
+    $authorResult = mysqli_stmt_get_result($stmt);
+    if (mysqli_num_rows($authorResult) > 0) {
+        $data = mysqli_fetch_assoc($authorResult);
+        mysqli_free_result($authorResult);
+        mysqli_stmt_close($stmt);
+        return $data;
+    } else {
+        mysqli_stmt_close($stmt);
+        return null;
+    }
+}

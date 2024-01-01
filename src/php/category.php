@@ -12,3 +12,22 @@ function getAllCategories($conn)
     }
     return $categories;
 }
+
+
+function getCategoryById($conn, $catId)
+{
+    $sql = "SELECT * FROM categories WHERE CategoryID=?";
+    $stmt = mysqli_prepare($conn, $sql);
+    mysqli_stmt_bind_param($stmt, 's', $catId);
+    mysqli_stmt_execute($stmt);
+    $categoryResult = mysqli_stmt_get_result($stmt);
+    if (mysqli_num_rows($categoryResult) > 0) {
+        $data = mysqli_fetch_assoc($categoryResult);
+        mysqli_free_result($categoryResult);
+        mysqli_stmt_close($stmt);
+        return $data;
+    } else {
+        mysqli_stmt_close($stmt);
+        return null;
+    }
+}

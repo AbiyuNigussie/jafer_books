@@ -1,0 +1,367 @@
+body {
+  padding: 0;
+  margin: 0;
+  background-color: black;
+}
+.left {
+  float: left;
+  width: 20%;
+  height: 95vh;
+  background-color: black;
+  position: fixed;
+}
+
+.uleft {
+  width: 100%;
+  height: 85%;
+  float: left;
+}
+.uuleft {
+  padding-top: 35px;
+}
+.uuleft a {
+  color: white;
+  font-size: 17px;
+  margin-left: 5px;
+  margin-top: 20px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  text-decoration: none;
+}
+.uuleft i {
+  margin-left: 23px;
+}
+
+.luleft {
+  padding-top: 35px;
+}
+.luleft a {
+  display: block;
+  font-size: 17px;
+  margin-top: 30px;
+  margin-left: 25px;
+  color: white;
+  text-decoration: none;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: normal;
+}
+.luleft a i {
+  color: white;
+  margin-right: 10px;
+}
+.luleft a:hover,
+.lleft a:hover,
+.uuleft a:hover {
+  text-decoration: underline;
+}
+
+.lleft {
+  width: 100%;
+  height: 20%;
+  clear: left;
+  background: black;
+  padding-top: 80px;
+}
+
+.lleft i {
+  color: white;
+  font-size: 17px;
+  margin-left: 30px;
+}
+.lleft a {
+  color: white;
+  font-size: 17px;
+  margin-left: 5px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  text-decoration: none;
+}
+.umid i {
+  margin-top: 25px;
+  margin-right: 40px;
+  color: green;
+  font-size: 35px;
+}
+
+.right {
+  float: right;
+  width: 80%;
+  height: 100vh;
+  background-color: grey;
+}
+.uright {
+  float: left;
+  height: 10%;
+  width: 100%;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+}
+.uright p {
+  margin-left: 30px;
+
+  font-size: 21px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  margin-top: 35px;
+}
+#i2 {
+  color: blue;
+}
+
+.uright p i {
+  margin-right: 20px;
+  text-decoration: none;
+}
+
+.lright {
+  clear: left;
+  width: 100%;
+  background-color: lightgrey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* Add these styles for the form in the .lright div */
+.lright form {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.lright label {
+  display: block;
+  margin-top: 15px;
+  font-size: 16px;
+  color: black;
+}
+
+.lright input {
+  width: 50%;
+  padding: 10px;
+  margin-top: 5px;
+  font-size: 14px;
+  border: 1px solid lightgray;
+  border-radius: 4px;
+}
+
+.lright textarea {
+  width: 50%;
+  padding: 10px;
+  margin-top: 5px;
+  font-size: 14px;
+  border: 1px solid lightgray;
+  border-radius: 4px;
+}
+
+.lright input[type="file"] {
+  margin-top: 5px;
+  font-size: 14px;
+  border: none;
+  padding: 10px;
+}
+
+.lright input[type="file"]::placeholder {
+  color: #95a5a6;
+}
+
+.lright button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.lright button:hover {
+  background-color: #45a049;
+}
+
+@media only screen and (max-width: 768px) {
+  .left {
+    width: 100%;
+    height: auto;
+    position: static;
+  }
+
+  .right {
+    width: 100%;
+  }
+}
+
+.midu {
+  height: 94%;
+  width: 92%;
+  background-color: white;
+  border-radius: 8px;
+  margin: 30px 0;
+}
+.umid {
+  float: left;
+  height: 10%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid lightgray;
+}
+.p1 {
+  margin-left: 20px;
+  margin-top: 30px;
+  font-size: 21px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  color: black;
+}
+.lmid {
+  clear: left;
+  width: 100%;
+  height: 90%;
+}
+.ulmid {
+  float: left;
+  height: 9%;
+  width: 100%;
+  background-color: white;
+  display: flex;
+  align-items: flex-start;
+  gap: 114px;
+  padding-bottom: 10px;
+}
+.ulmid p {
+  margin-left: 18px;
+  font-size: 18px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  color: black;
+}
+.llmid {
+  clear: left;
+  height: 92%;
+  width: 100%;
+  background-color: hotpink;
+  display: flex;
+  flex-direction: column;
+}
+.llmid i {
+  color: red;
+  font-size: 25px;
+}
+.boo {
+  height: 20%;
+  width: 100%;
+  background-color: white;
+  display: flex;
+  gap: 102px;
+  padding-top: 4px;
+}
+.boo p {
+  margin-left: 20px;
+}
+.xr {
+  margin-top: 15px;
+  margin-left: 7px;
+  display: flex;
+  gap: 20px;
+}
+.boo i {
+  font-size: 28px;
+  border-radius: 0%;
+  margin-left: 12px;
+}
+.boo img {
+  width: 70px;
+  padding-bottom: 10px;
+  padding-left: 5px;
+}
+
+select {
+  appearance: none; /* Remove default arrow icon in some browsers */
+  -webkit-appearance: none; /* For older versions of Chrome and Safari */
+  -moz-appearance: none; /* For older versions of Firefox */
+
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  width: 50%;
+}
+
+select::after {
+  content: "\25BC"; /* Unicode character for a down-pointing triangle */
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  font-size: 14px;
+  pointer-events: none;
+}
+
+select option {
+  padding: 10px;
+  font-size: 16px;
+  background-color: #fff;
+  color: #333;
+}
+
+select option:checked {
+  background-color: #e0e0e0;
+}
+
+.xr button[type="reset"] {
+  background-color: dodgerblue;
+}
+
+.successDiv {
+  position: fixed;
+  top: 10px;
+  right: -100%;
+  margin: 5px;
+  padding: 8px 10px;
+  height: 40px;
+  font-size: 16px;
+  color: white;
+  background-color: #4caf50;
+  border-radius: 5px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.5s ease-in-out;
+}
+
+.errorDiv {
+  position: fixed;
+  top: 10px;
+  right: -100%;
+  margin: 5px;
+  padding: 8px 10px;
+  height: 40px;
+  font-size: 16px;
+  color: white;
+  background-color: #c20000;
+  border-radius: 5px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.5s ease-in-out;
+}
+
+.successDiv.close,
+.errorDiv.close {
+  transform: translateX(100%);
+  opacity: 0;
+}
+.successDiv.visible,
+.errorDiv.visible {
+  right: 20px;
+}
+
+.successDiv i,
+.errorDiv i {
+  cursor: pointer;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}

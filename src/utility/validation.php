@@ -24,3 +24,13 @@ function isBookId($var, $text, $location, $ms, $data)
     }
     return 0;
 }
+
+function isEventId($var, $text, $location, $ms, $data)
+{
+    $pattern = '/^EV\d{3}$/';
+    if (!preg_match($pattern, $var)) {
+        $em = "Error: Please enter a valid" . $text . " in the format EV123.";
+        header("Location: $location?$ms=$em&$data");
+        exit;
+    }
+}

@@ -75,6 +75,14 @@ CREATE TABLE admin (
     Email VARCHAR(100) NOT NULL
 );
 
+CREATE TABLE events (
+    event_id VARCHAR(10) PRIMARY KEY,
+    event_title VARCHAR(255) NOT NULL,
+    description TEXT,
+    event_image VARCHAR(255),
+    schedule DATETIME NOT NULL
+);
+
 INSERT INTO Categories (CategoryName, Description)
 VALUES
     ('Fiction', 'Books that tell imaginative stories'),
