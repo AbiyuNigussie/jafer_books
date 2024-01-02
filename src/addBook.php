@@ -32,28 +32,12 @@ if (isset($_SESSION['userId']) && isset($_SESSION['userEmail'])) {
 
   <body>
     <main>
-      <div class="left">
-        <div class="uleft">
-          <div class="uuleft">
-            <i class="fa-solid fa-user"></i> <a> Mr. Someone </a>
-          </div>
-          <div class="luleft">
-            <a href="#"> <i class="fa-solid fa-layer-group"></i> Dashboard </a>
-            <a href="./adminBooks.php">
-              <i class="fa-solid fa-book"></i> Books
-            </a>
-            <a href="#"> <i class="fa-solid fa-cart-shopping"></i>Order </a>
-            <a href="./users.html"> <i class="fa-solid fa-users"></i> Users </a>
-          </div>
-        </div>
-        <div class="lleft">
-          <i class="fa-solid fa-right-from-bracket"></i>
-          <a href="./adminLogin"> Logout </a>
-        </div>
-      </div>
+      <?php
+      include 'layout/sideBar.php';
+      ?>
       <div class="right">
         <div class="uright">
-          <p><i class="fa-solid fa-list"></i> Books</p>
+          <p><i class="fa-solid fa-list" id="burgerNav"></i> Books</p>
           <?php
           if (isset($_GET['success'])) { ?>
             <div class="successDiv">

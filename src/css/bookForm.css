@@ -4,13 +4,21 @@ body {
   background-color: black;
 }
 .left {
+  left: -100%;
   float: left;
   width: 20%;
   height: 95vh;
   background-color: black;
   position: fixed;
+  transition: all 0.5s ease-in-out;
 }
-
+.left.visible {
+  left: 0;
+}
+.left.close {
+  transform: translateX(100%);
+  opacity: 0;
+}
 .uleft {
   width: 100%;
   height: 85%;
@@ -83,7 +91,7 @@ body {
 
 .right {
   float: right;
-  width: 80%;
+  width: 100%;
   height: 100vh;
   background-color: grey;
 }
@@ -364,4 +372,13 @@ select option:checked {
   position: absolute;
   top: 5px;
   right: 5px;
+}
+
+.left #closeIcon2 {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
 }

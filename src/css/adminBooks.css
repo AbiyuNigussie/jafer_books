@@ -219,8 +219,14 @@ i.fa-square-xmark:hover {
   text-align: center;
   max-width: 14.3%;
 }
+
+.content a {
+  text-decoration: none;
+}
 .content i {
   align-items: baseline;
+  font-size: 24px;
+  color: red;
 }
 
 .successDiv {

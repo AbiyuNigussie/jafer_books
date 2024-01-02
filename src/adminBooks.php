@@ -35,36 +35,9 @@ if (isset($_SESSION['userId']) && isset($_SESSION['userEmail'])) {
 
     <body>
         <main>
-            <div class="left" id="sideBar">
-                <i class="fa-solid fa-close " id="closeIcon2"></i>
-                <div class="uleft">
-                    <div class="uuleft">
-                        <i class="fa-solid fa-user"></i> <a>
-                            Admin
-                        </a>
-                    </div>
-                    <div class="luleft">
-                        <a href="#">
-                            <i class="fa-solid fa-layer-group"></i> Dashboard
-                        </a href="#">
-                        <a href="./books.html">
-                            <i class="fa-solid fa-book"></i> Books
-                        </a href="#">
-                        <a href="#">
-                            <i class="fa-solid fa-cart-shopping"></i>Order
-                        </a href="#">
-                        <a href="#">
-                            <i class="fa-solid fa-users"></i> Users
-                        </a href="#">
-
-                    </div>
-                </div>
-                <div class="lleft">
-                    <i class="fa-solid fa-right-from-bracket"></i> <a href="./adminLogin">
-                        Logout
-                    </a>
-                </div>
-            </div>
+            <?php
+            include 'layout/sideBar.php';
+            ?>
             <div class="right">
                 <div class="uright">
                     <p>
@@ -119,6 +92,7 @@ if (isset($_SESSION['userId']) && isset($_SESSION['userEmail'])) {
                                         foreach ($authors as $author) {
                                             if ($author['AuthorID'] == $Book['AuthorID']) {
                                                 $AuthorFN = $author['FirstName'];
+                                                $AuthorLN = $author['LastName'];
                                                 break;
                                             }
                                         }
@@ -129,7 +103,7 @@ if (isset($_SESSION['userId']) && isset($_SESSION['userEmail'])) {
                                             <p><?php echo $Bookid; ?></p>
                                             <div><img src="../uploads/cover/<?php echo $BookC; ?>"></div>
                                             <p><?php echo $BookT; ?></p>
-                                            <p><?php echo $AuthorFN; ?></p>
+                                            <p><?php echo $AuthorFN . " " . $AuthorLN ?></p>
                                             <p><?php echo $P; ?></p>
                                             <p><?php echo $Qty; ?></p>
                                             <div>
