@@ -1,0 +1,56 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #accffd;
+}
+.container {
+  background-color: #fff;
+  width: fit-content;
+  padding: 20px 50px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.container h2 {
+  text-align: center;
+}
+
+.container div {
+  display: flex;
+  width: 100%;
+}
+.container div label {
+  border-bottom: 2px solid lightgray;
+  padding-right: 10px;
+  padding-bottom: 5px;
+}
+.container div input {
+  border: none;
+  border-bottom: 2px solid lightgray;
+  flex-grow: 1;
+  padding-bottom: 5px;
+  outline: none;
+}
+
+button {
+  padding: 10px;
+  border: none;
+  background-color: #9aceff;
+  cursor: pointer;
+  text-transform: uppercase;
+  color: white;
+}
+
+.alert {
+  color: red;
+  text-align: left;
+  font-size: 13px;
+}

@@ -34,3 +34,13 @@ function isEventId($var, $text, $location, $ms, $data)
         exit;
     }
 }
+
+function isPhoneNumber($var, $text, $location, $ms, $data)
+{
+    $pattern = '/^\+251\d{9}$/';
+    if (!preg_match($pattern, $var)) {
+        $em = "Please enter a valid" . $text . " in the format +251-000-00-0000.";
+        header("Location: $location?$ms=$em&$data");
+        exit;
+    }
+}

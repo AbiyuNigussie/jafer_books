@@ -34,27 +34,28 @@ CREATE TABLE Books(
 
 
 
-
 CREATE TABLE Customers (
-    CustomerID INT PRIMARY KEY,
-    FirstName VARCHAR(255),
-    LastName VARCHAR(255),
-    Email VARCHAR(255),
-    Password VARCHAR(255),
-    Address TEXT,
+    CustomerID INT PRIMARY KEY AUTO_INCREMENT,
+    FirstName VARCHAR(50) NOT NULL,
+    LastName VARCHAR(50) NOT NULL,
+    Email VARCHAR(100) NOT NULL UNIQUE,
+    Address VARCHAR(255),
     PhoneNumber VARCHAR(20),
-    RegistrationDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    RegistrationDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    UserID INT,
+    FOREIGN KEY (UserID) REFERENCES UserAccount(UserID)
 );
 
+
 CREATE TABLE Orders (
-    OrderID INT PRIMARY KEY,
+    OrderID INT PRIMARY KEY AUTO_INCREMENT,
     CustomerID INT,
     OrderDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    TotalAmount DECIMAL(10, 2),
-    Status VARCHAR(50),
-    PaymentMethod VARCHAR(50),
-    PaymentStatus VARCHAR(50),
-    ShippingAddress TEXT,
+    TotalAmount DECIMAL(10, 2) DEFAULT 0.00,
+    Status ENUM('pending', 'processing', 'shipped', 'completed') DEFAULT 'pending',
+    ShippingAddress VARCHAR(255) NOT NULL,
+    PaymentMethod VARCHAR(50) NOT NULL,
+    PaymentStatus ENUM('unpaid', 'paid', 'processing') DEFAULT 'unpaid',
     FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID)
 );
 
@@ -73,6 +74,15 @@ CREATE TABLE admin (
     Username VARCHAR(50) NOT NULL,
     Password VARCHAR(255) NOT NULL,
     Email VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE UserAccount (
+    UserID INT PRIMARY KEY AUTO_INCREMENT,
+    Email VARCHAR(100) NOT NULL UNIQUE,
+    Password VARCHAR(255) NOT NULL,
+    Role ENUM('customer', 'employee', 'admin') NOT NULL,
+    CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    LastLoginAt TIMESTAMP NULL DEFAULT NULL,
 );
 
 CREATE TABLE events (

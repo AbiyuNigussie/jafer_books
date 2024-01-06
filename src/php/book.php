@@ -34,7 +34,6 @@ function getBookByCategory($conn, $catId)
 
 function deleteBook($conn, $bookId)
 {
-    // Use a prepared statement to prevent SQL injection
     $sql = "DELETE FROM books
             WHERE BookID = ?";
 
