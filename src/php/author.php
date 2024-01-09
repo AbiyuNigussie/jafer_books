@@ -17,16 +17,18 @@ function getAuthorById($conn, $authId)
 {
     $sql = "SELECT * FROM authors WHERE AuthorID=?";
     $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param($stmt, 'i', $authId);
+    mysqli_stmt_bind_param($stmt, 's', $authId);
     mysqli_stmt_execute($stmt);
     $authorResult = mysqli_stmt_get_result($stmt);
-    if (mysqli_num_rows($authorResult) > 0) {
-        $data = mysqli_fetch_assoc($authorResult);
-        mysqli_free_result($authorResult);
-        mysqli_stmt_close($stmt);
-        return $data;
-    } else {
-        mysqli_stmt_close($stmt);
-        return null;
+
+    $data = array(); // Initialize an array to store author data
+
+    while ($row = mysqli_fetch_assoc($authorResult)) {
+        $data[] = $row;
     }
+
+    mysqli_free_result($authorResult);
+    mysqli_stmt_close($stmt);
+
+    return $data;
 }

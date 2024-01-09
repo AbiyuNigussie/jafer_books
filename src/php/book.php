@@ -34,6 +34,7 @@ function getBookByCategory($conn, $catId)
 
 function deleteBook($conn, $bookId)
 {
+    // Use a prepared statement to prevent SQL injection
     $sql = "DELETE FROM books
             WHERE BookID = ?";
 
@@ -50,3 +51,39 @@ function deleteBook($conn, $bookId)
 
     mysqli_stmt_close($stmt);
 }
+
+function getBookDetailsById($conn, $bookId)
+{
+    $sql = "SELECT * FROM books WHERE BookID=?";
+    $stmt = mysqli_prepare($conn, $sql);
+
+    if (!$stmt) {
+        // Log or handle the SQL preparation error
+        error_log("SQL Prepare Error: " . mysqli_error($conn));
+        return null;
+    }
+
+    mysqli_stmt_bind_param($stmt, "s", $bookId);
+    mysqli_stmt_execute($stmt);
+    $res = mysqli_stmt_get_result($stmt);
+
+    if (!$res) {
+        // Log or handle the SQL execution error
+        error_log("SQL Execution Error: " . mysqli_error($conn));
+        mysqli_stmt_close($stmt);
+        return null;
+    }
+
+    $bookDetails = mysqli_fetch_assoc($res);
+    mysqli_free_result($res);
+
+    if (!$bookDetails) {
+        // Handle the case where no record is found
+        return null;
+    }
+
+    mysqli_stmt_close($stmt);
+
+    return $bookDetails;
+}
+
