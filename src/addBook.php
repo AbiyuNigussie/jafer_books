@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (isset($_SESSION['userId']) && isset($_SESSION['userEmail'])) {
+if (isset($_SESSION['userId']) && isset($_SESSION['userEmail']) && $_SESSION['userRole'] == 'admin') {
 
   include 'connection/db_connection.php';
   include 'php/category.php';

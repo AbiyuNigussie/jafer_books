@@ -2,27 +2,30 @@
     <i class="fa-solid fa-close " id="closeIcon2"></i>
     <div class="uleft">
         <div class="uuleft">
-            <i class="fa-solid fa-user"></i> <a>
-                Admin
+            <i class="fa-solid fa-user" id='fa-user-icon' style="color: white; font-size:25px; margin-right:10px"></i> <a>
+                <?= $_SESSION['userEmail'] ?>
+
             </a>
         </div>
-        <div class="luleft">
-            
-            <a href="./adminBooks.php">
-                <i class="fa-solid fa-book"></i> Books
-            </a >
-            <a href="#">
-                <i class="fa-solid fa-cart-shopping"></i>Order
-            </a href="#">
-            <a href="#">
-                <i class="fa-solid fa-users"></i> Users
-            </a >
-            <a href="adminCatagory.php">
-                <i class="fa-solid fa-layer-group"></i> Categories
-            </a >
-            <a href="adminAuthor.php">
-                <i class="fa-solid fa-users"></i> Authors
-            </a >
+        <div class=" luleft">
+            <?php
+
+            if ($_SESSION['userRole'] == 'admin') {
+            ?>
+                <a href="./adminBooks.php">
+                    <i class="fa-solid fa-book"></i> Books
+                </a>
+                <a href="#">
+                    <i class="fa-solid fa-cart-shopping"></i>Order
+                </a>
+                <a href="#">
+                    <i class="fa-solid fa-users"></i> Users
+                </a>
+            <?php } ?>
+            <a href="./adminEvents.php">
+                <i class="fa-regular fa-calendar-days"></i>Events
+            </a>
+
         </div>
     </div>
     <div class="lleft">

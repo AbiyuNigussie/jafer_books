@@ -13,49 +13,52 @@
   <?php
   include 'layout/header.php';
   ?>
-  <div id="main">
-    <div>
-      <h1>MY BOOK</h1>
-    </div>
-    <div id="book">
-      <h2>Book Title</h2>
-      <!-- <img src="imgg/images (2).png" style="width: 50px; height: 60px; "> -->
-      <div id="book-desc">
-        <p>This is a brief discription of the book</p>
-        <p>ETB 150.50</p>
-        <p>Qty:2</p>
+  <div class="main">
+    <div class="main-cont">
+      <div class="first-col">
+        <div class="col-title">
+          <h2>My Cart</h2>
+        </div>
+        <div class="row">
+          <div>
+            <div class="img-cont">
+              <img src="../uploads/cover/1984_cover.jpg" alt="">
+            </div>
+            <div class="bookdetails">
+              <p><b>Title: </b>Nineteen Eighty-F</p>
+              <p><b>Author: </b>George Orwell</p>
+              <p><span id="price"><b>Price: $35.00</b></span></p>
+              <p><span id="quantity"><b>Quantity: 2</b></span></p>
+
+            </div>
+          </div>
+          <button><i class="fa fa-close"></i></button>
+
+        </div>
+        <div class="row">
+          <div>
+            <div class="img-cont">
+              <img src="../uploads/cover/1984_cover.jpg" alt="">
+            </div>
+            <div class="bookdetails">
+              <p><b>Title: </b>Nineteen Eighty-F</p>
+              <p><b>Author: </b>George Orwell</p>
+              <p><span id="price"><b>Price: $35.00</b></span></p>
+              <p><span id="quantity"><b>Quantity: 2</b></span></p>
+
+            </div>
+          </div>
+          <button><i class="fa fa-close"></i></button>
+
+        </div>
       </div>
+      <div class="second-col">h</div>
     </div>
-    <div class="remove-icon" onclick="removeBook(this)">X</div>
-    <div id="book1">
-      <h2>Book Title</h2>
-      <!-- <img src="imgg/images (2).png" style="width: 50px; height: 60px; "> -->
-      <p>This is a brief discription of the book</p>
-      <p>ETB 150.50</p>
-      <p>Qty:2</p>
-    </div>
-    <div class="remove-icon1" onclick="removeBook(this)">X</div>
-    <div>
-      <h2>Book Title</h2>
-      <!-- <img src="imgg/images (2).png" style="width: 50px; height: 60px; "> -->
-      <p>This is a brief discription of the book</p>
-      <p>ETB 150.50</p>
-      <p>Qty:2</p>
-    </div>
-    <div class="remove-icon2" onclick="removeBook(this)">X</div>
-    <div id="checkout">
-      <h2>Total</h2>
-      <hr />
-      <p>sub total</p>
-      <p>ETB 450.50</p>
-      <p>tax %</p>
-      <p>ETB 120.40</p>
-      <p>Delivery</p>
-      <p>ETB 55.50</p>
-      <hr />
-      <button id="check-button">CHECKOUT</button>
-    </div>
+
+
   </div>
+
+
   <?php
   include 'layout/footer.php';
   ?>

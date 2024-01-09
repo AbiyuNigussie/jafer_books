@@ -4,6 +4,12 @@ session_start();
 if (isset($_SESSION['userId']) && isset($_SESSION['userEmail'])) {
 
     include 'connection/db_connection.php';
+    include 'php/author.php';
+    $authors = getAllAuthors($conn);
+    if (isset($_GET['authorId'])) {
+        $author_id = $_GET['authorId'];
+    } else $authorId = 0;
+
 
 ?>
 
@@ -20,25 +26,7 @@ if (isset($_SESSION['userId']) && isset($_SESSION['userEmail'])) {
 
     <body>
         <main>
-            <div class="left">
-                <div class="uleft">
-                    <div class="uuleft">
-                        <i class="fa-solid fa-user"></i> <a> Mr. Someone </a>
-                    </div>
-                    <div class="luleft">
-                        <a href="#"> <i class="fa-solid fa-layer-group"></i> Dashboard </a>
-                        <a href="./adminBooks.php">
-                            <i class="fa-solid fa-book"></i> Books
-                        </a>
-                        <a href="#"> <i class="fa-solid fa-cart-shopping"></i>Order </a>
-                        <a href="./users.html"> <i class="fa-solid fa-users"></i> Users </a>
-                    </div>
-                </div>
-                <div class="lleft">
-                    <i class="fa-solid fa-right-from-bracket"></i>
-                    <a href="./adminLogin"> Logout </a>
-                </div>
-            </div>
+            <?php include 'layout/sideBar.php' ?>
             <div class="right">
                 <div class="uright">
                     <p><i class="fa-solid fa-list"></i> Events</p>
@@ -69,6 +57,27 @@ if (isset($_SESSION['userId']) && isset($_SESSION['userEmail'])) {
                                 <input type="text" id="eventId" name="eventId" />
                                 <label for="title">Title</label>
                                 <input type="text" id="title" name="title" />
+                                <label for="author">Hosted By</label>
+                                <select name="author">
+                                    <option value="0">Select author</option>
+                                    <?php
+                                    if ($authors == 0) {
+                                    } else {
+                                        foreach ($authors as $author) {
+                                            $name = $author['FirstName'] . " " . $author['LastName'];
+                                            if ($authorId == $author['AuthorID']) { ?>
+                                                <option selected value="<?= $author['AuthorID'] ?>">
+                                                    <?= $name ?>
+                                                </option>
+                                            <?php } else { ?>
+                                                <option value="<?= $author['AuthorID'] ?>">
+                                                    <?= $name ?>
+                                                </option>
+                                    <?php }
+                                        }
+                                    }
+                                    ?>
+                                </select>
 
                                 <label for="schedule">Schedule</label>
                                 <input type="datetime-local" id="schedule" name="schedule" />

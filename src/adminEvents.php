@@ -1,22 +1,11 @@
 <?php
 session_start();
-if (isset($_SESSION['userId']) && isset($_SESSION['userEmail']) && $_SESSION['userRole'] == 'admin') {
+if (isset($_SESSION['userId']) && isset($_SESSION['userEmail'])) {
     include 'connection/db_connection.php';
-    include 'php/category.php';
-    include 'php/book.php';
-    include 'php/author.php';
-    include 'php/admin.php';
-    $Books = getAllBooks($conn);
-    $authors = getAllAuthors($conn);
-    $admion = getAllAdmin($conn);
+    include 'php/event.php';
+    $events = getAllEvents($conn);
 
 
-    if (isset($_GET['categoryId'])) {
-        $categoryId = $_GET['categoryId'];
-    } else $categoryId = 0;
-    if (isset($_GET['bookId'])) {
-        $bookId = $_GET['bookId'];
-    } else $bookId = 0;
 
 ?>
 
@@ -27,8 +16,8 @@ if (isset($_SESSION['userId']) && isset($_SESSION['userEmail']) && $_SESSION['us
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Admin Books | Jafer Books</title>
-        <link rel="stylesheet" href="css/adminBooks.css" />
+        <title>Admin Events | Jafer Books</title>
+        <link rel="stylesheet" href="css/adminEvents.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <!-- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"> -->
     </head>
@@ -41,7 +30,7 @@ if (isset($_SESSION['userId']) && isset($_SESSION['userEmail']) && $_SESSION['us
             <div class="right">
                 <div class="uright">
                     <p>
-                        <i class="fa-solid fa-list" id="burgerNav"></i> Books
+                        <i class="fa-solid fa-list" id="burgerNav"></i> Events
                     </p>
                     <?php
                     if (isset($_GET['success'])) { ?>
@@ -63,52 +52,40 @@ if (isset($_SESSION['userId']) && isset($_SESSION['userEmail']) && $_SESSION['us
                     <div class="midu">
                         <div class="umid">
 
-                            <p class="p1">All Books</p>
-                            <a href="./addBook.php">
+                            <p class="p1">All Events</p>
+                            <a href="./addEvent.php">
                                 <i class="fa-solid fa-square-plus"></i>
                             </a>
                         </div>
                         <div class="lmid">
                             <div class="ulmid">
                                 <p>#</p>
-                                <p>Cover</p>
+                                <p>Event Image</p>
                                 <p>Title</p>
-                                <p>Author</p>
-                                <p>Price</p>
-                                <p>Quantity</p>
+                                <p>Schedule</p>
                                 <p class="fa">Action</p>
                             </div>
                             <div class="llmid">
                                 <?php
-                                if ($authors == 0 && $Books == 0) {
+                                if ($events == 0) {
                                 } else {
-                                    foreach ($Books as $Book) {
-                                        $Bookid = $Book['BookID'];
-                                        $BookT = $Book['Title'];
-                                        $BookC = $Book['CoverImageURL'];
-                                        $P = $Book['Price'];
-                                        $Qty = $Book['QuantityAvailable'];
-                                        $AuthorFN = '';
-                                        foreach ($authors as $author) {
-                                            if ($author['AuthorID'] == $Book['AuthorID']) {
-                                                $AuthorFN = $author['FirstName'];
-                                                $AuthorLN = $author['LastName'];
-                                                break;
-                                            }
-                                        }
+                                    foreach ($events as $event) {
+                                        $eventId = $event['EventID'];
+                                        $eventImg = $event['eventImage'];
+                                        $eventT = $event['Title'];
+                                        $eventS = $event['Schedule'];
+
 
 
                                 ?>
                                         <div class="content" id="page">
-                                            <p><?php echo $Bookid; ?></p>
-                                            <div><img src="../uploads/cover/<?php echo $BookC; ?>"></div>
-                                            <p><?php echo $BookT; ?></p>
-                                            <p><?php echo $AuthorFN . " " . $AuthorLN ?></p>
-                                            <p><?php echo $P; ?></p>
-                                            <p><?php echo $Qty; ?></p>
+                                            <p><?php echo $eventId; ?></p>
+                                            <div><img src="../uploads/event/<?php echo $eventImg; ?>"></div>
+                                            <p><?php echo $eventT; ?></p>
+                                            <p><?php echo $eventS; ?></p>
                                             <div>
 
-                                                <a href="php/deleteBook.php?bookId=<?php echo $Bookid; ?>" onclick="return confirm('Are you sure you want to delete this book?');">
+                                                <a href="php/deleteEvent.php?eventId=<?php echo $eventId; ?>" onclick="return confirm('Are you sure you want to event this book?');">
                                                     <i class="fa-solid fa-square-xmark" id="x"></i>
                                                 </a>
                                             </div>

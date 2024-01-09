@@ -1,7 +1,7 @@
 <?php
 
 
-function getAllEvent($conn)
+function getAllEvents($conn)
 {
     $sql = "SELECT * from  events";
     $result = mysqli_query($conn, $sql);

@@ -84,7 +84,7 @@ if (isset($_GET['address'])) {
                 <label for="password"><i class="fa-solid fa-lock"></i></label>
             </div>
             <button type="submit">Register</button>
-            <p>Already have an account? <a href="login.php">Login here
+            <p>Already have an account? <a href="signin.php">Login here
                 </a>.</p>
 
 

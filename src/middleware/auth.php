@@ -18,7 +18,7 @@ if (($_SERVER["REQUEST_METHOD"] == "POST")) {
     $message = "error";
     isEmpty($password, $text, $location, $message, "");
 
-    $sql = "SELECT * FROM admin WHERE Email=?";
+    $sql = "SELECT * FROM userAccount WHERE Email=?";
     $stmt = mysqli_prepare($conn, $sql);
 
     mysqli_stmt_bind_param($stmt, "s", $email);
@@ -31,15 +31,22 @@ if (($_SERVER["REQUEST_METHOD"] == "POST")) {
 
     if ($numRows === 1) {
         $user = mysqli_fetch_assoc($result);
-        $userId = $user['Admin_id'];
+        $userId = $user['UserID'];
         $userEmail = $user['Email'];
         $userPassword = $user['Password'];
+        $userRole = $user['Role'];
 
         if ($email === $userEmail) {
             if (password_verify($password, $userPassword)) {
                 $_SESSION['userId'] = $userId;
                 $_SESSION['userEmail'] = $userEmail;
-                header("Location: ../adminBooks.php");
+                $_SESSION['userRole'] = $userRole;
+                if ($userRole == 'employee') {
+                    header("Location: ../adminEvents.php");
+                } else {
+
+                    header("Location: ../adminBooks.php");
+                }
             } else {
                 $em = "Incorrect username or password";
                 header("Location: ../adminLogin.php?error=$em");

@@ -12,13 +12,15 @@ if (isset($_SESSION['userId']) && isset($_SESSION['userEmail'])) {
         isset($_POST['title']) &&
         isset($_POST['schedule']) &&
         isset($_POST['description']) &&
+        isset($_POST['author']) &&
         isset($_FILES['eventImage'])
     ) {
         $eventId = $_POST['eventId'];
         $title = $_POST['title'];
+        $author = $_POST['author'];
         $schedule = $_POST['schedule'];
         $description = $_POST['description'];
-        $userInput = 'eventId=' . $eventId . 'title=' . $title . '&desc=' . $description;
+        $userInput = 'eventId=' . $eventId . 'title=' . $title . '&desc=' . $description . '&author=' . $author;
 
         $text = "Event ID";
         $location = "../addEvent.php";
@@ -30,6 +32,11 @@ if (isset($_SESSION['userId']) && isset($_SESSION['userEmail'])) {
         $location = "../addEvent.php";
         $ms = "error";
         isEmpty($title, $text, $location, $ms, $userInput);
+
+        $text = "Book author";
+        $location = "../addEvent.php";
+        $ms = "error";
+        isEmpty($author, $text, $location, $ms, $userInput);
 
         $text = "Event description";
         $location = "../addEvent.php";
@@ -59,11 +66,12 @@ if (isset($_SESSION['userId']) && isset($_SESSION['userEmail'])) {
                 Title,
                 Schedule,
                 Description,
-                eventImage
-                ) values(?,?,?,?,?);";
+                eventImage,
+                AuthorID,
+                ) values(?,?,?,?,?,?);";
 
             $stmt = mysqli_prepare($conn, $sql);
-            mysqli_stmt_bind_param($stmt, "sssss", $eventId, $title, $schedule, $description, $eventImageUrl);
+            mysqli_stmt_bind_param($stmt, "sssssi", $eventId, $title, $schedule, $description, $eventImageUrl, $author);
             $res = mysqli_stmt_execute($stmt);
 
             if ($res) {

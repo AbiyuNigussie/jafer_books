@@ -2,8 +2,9 @@
 
 include 'connection/db_connection.php';
 include 'php/event.php';
+include 'php/author.php';
 
-$events = getAllEvent($conn);
+$events = getAllEvents($conn);
 ?>
 
 <!DOCTYPE html>
@@ -26,13 +27,25 @@ $events = getAllEvent($conn);
     <div class="cont">
       <h2>Upcoming Events</h2>
       <?php
-      foreach ($events as $event) { ?>
+      foreach ($events as $event) {
+        $author = getAuthorById($conn, $event['AuthorID']);
+      ?>
+
         <section class="A">
           <img src="../uploads/event/<?= $event['eventImage'] ?>" alt="book" style="width: 350px; height: 200px" />
           <div class="abt">
             <br />
-            <h3><?= $event['Title'] ?></h3>
+            <h3> <?= $event['Title'] ?></h3>
             <br />
+
+            <?php
+            if ($author) {
+            ?>
+              <p><b>Hosted by </b><?= $author['FirstName'] + ' ' + $author['LastName'] ?></p>
+            <? } else { ?>
+              <p><b>Hosted by </b>Unknown</p>
+
+            <?php } ?>
             <p><?= $event['Description'] ?></p>
             <p><?= $event['Schedule'] ?></p>
           </div>
