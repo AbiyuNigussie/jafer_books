@@ -1,7 +1,7 @@
 <header>
     <div class="left-cont">
         <div class="logo">
-            <h2>Logo</h2>
+            <h2>Jafer Books</h2>
         </div>
         <div class="nav-links">
             <ul>

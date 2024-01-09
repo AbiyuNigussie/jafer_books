@@ -19,9 +19,11 @@
   include 'connection/db_connection.php';
   include 'php/book.php';
   include 'php/category.php';
+  include 'php/author.php';
 
   $books = getAllBooks($conn);
   $categories = getAllCategories($conn);
+  $author = getAllAuthors($conn);
 
   ?>
   <div class="wrapper">
@@ -52,14 +54,22 @@
           <div class="books-list-cont">
             <?php
             foreach ($books as $book) {
-              if ($book['CategoryID'] === $category['CategoryID']) { ?>
+              if ($book['CategoryID'] === $category['CategoryID']) { 
+               $authorName = 'Unknown Author';
+                foreach ($author as $auth) {
+                  if ($auth['AuthorID'] === $book['AuthorID']) {
+                    $authorName = $auth['FirstName'] . ' ' . $auth['LastName'];
+                    break;
+                  }
+                }
+                ?>
                 <a href="bookItem.php?bookId=<?= $book['BookID'] ?>" class="book-item">
                   <div class="img-cont">
                     <img src="../uploads/cover/<?= $book['CoverImageURL'] ?>" />
                   </div>
                   <span class="book-title"><?= $book['Title'] ?></span>
-                  <span class="book-author">Kerby Rosanes</span>
-                  <span class="book-price">from <b><?= $book['Price'] ?></b></span>
+                  <span class="book-author"><?= $authorName ?></span>
+                  <span class="book-price"><b><?= $book['Price'] ?> ETB</b></span>
                 </a>
             <?php }
             }

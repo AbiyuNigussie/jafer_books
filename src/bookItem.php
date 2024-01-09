@@ -56,36 +56,7 @@ if (isset($_GET['bookId']) ) {
     <title>Book Item | Jafer Books</title>
   </head>
   <body>
-    <header>
-      <div class="left-cont">
-        <div class="logo">
-          <h2>Logo</h2>
-        </div>
-        <div class="nav-links">
-          <ul>
-            <li><a href="./index.html">Home</a></li>
-            <li><a href="./books.html">Books</a></li>
-            <li><a href="./event.html">Events</a></li>
-            <li><a href="./contact.html">Contact</a></li>
-            <li><a href="./about.html">About</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="right-cont">
-        <div class="search-cont">
-          <input type="text" />
-          <button><i class="fa-solid fa-search"></i></button>
-        </div>
-        <div class="nav-icons">
-          <a href="./cart.html">
-            <i class="fa-solid fa-cart-shopping"></i>
-          </a>
-          <a href="adminBooks.php">
-            <i class="fa-solid fa-user"></i>
-          </a>
-        </div>
-      </div>
-    </header>
+   <?php include 'layout/header.php' ?>
     <div class="wrapper">
       <main>
         <div class="imgWrapper">
@@ -120,11 +91,11 @@ if (isset($_GET['bookId']) ) {
       <div class="cols">
         <div class="col">
           <ul>
-            <li><a href="./index.html">Home</a></li>
+            <li><a href="./index.php">Home</a></li>
             <li><a href="./books.html">Books</a></li>
             <li><a href="./event.html">Events</a></li>
             <li><a href="./contact.html">Contact</a></li>
-            <li><a href="./about.html">About</a></li>
+            <li><a href="./about.php">About</a></li>
           </ul>
         </div>
         <div class="col">
