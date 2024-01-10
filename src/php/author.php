@@ -21,14 +21,11 @@ function getAuthorById($conn, $authId)
     mysqli_stmt_execute($stmt);
     $authorResult = mysqli_stmt_get_result($stmt);
 
-    $data = array(); // Initialize an array to store author data
-
-    while ($row = mysqli_fetch_assoc($authorResult)) {
-        $data[] = $row;
-    }
+    $data = mysqli_fetch_assoc($authorResult); 
 
     mysqli_free_result($authorResult);
     mysqli_stmt_close($stmt);
 
     return $data;
 }
+

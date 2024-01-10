@@ -20,7 +20,7 @@ if (isset($_SESSION['userId']) && isset($_SESSION['userEmail'])) {
         $author = $_POST['author'];
         $schedule = $_POST['schedule'];
         $description = $_POST['description'];
-        $userInput = 'eventId=' . $eventId . 'title=' . $title . '&desc=' . $description . '&author=' . $author;
+        $userInput = 'eventId=' . $eventId . '&title=' . $title . '&desc=' . $description . '&author=' . $author;
 
         $text = "Event ID";
         $location = "../addEvent.php";
@@ -29,31 +29,20 @@ if (isset($_SESSION['userId']) && isset($_SESSION['userEmail'])) {
         isEventId($eventId, $text, $location, $ms, $userInput);
 
         $text = "Event title";
-        $location = "../addEvent.php";
-        $ms = "error";
         isEmpty($title, $text, $location, $ms, $userInput);
 
         $text = "Book author";
-        $location = "../addEvent.php";
-        $ms = "error";
         isEmpty($author, $text, $location, $ms, $userInput);
 
         $text = "Event description";
-        $location = "../addEvent.php";
-        $ms = "error";
         isEmpty($description, $text, $location, $ms, $userInput);
 
-
         $text = "Event schedule";
-        $location = "../addEvent.php";
-        $ms = "error";
         isEmpty($schedule, $text, $location, $ms, $userInput);
 
-
-
-        $allowedImageExs = array("jpg", "jpeg", "png");
+        $allowedImageExts = array("jpg", "jpeg", "png");
         $path = "event";
-        $eventImage = uploadFiles($_FILES['eventImage'], $allowedImageExs, $path);
+        $eventImage = uploadFiles($_FILES['eventImage'], $allowedImageExts, $path);
 
         if ($eventImage['status'] == "error") {
             $em = $eventImage['data'];
@@ -61,29 +50,26 @@ if (isset($_SESSION['userId']) && isset($_SESSION['userEmail'])) {
             exit();
         } else {
             $eventImageUrl = $eventImage['data'];
-            $sql = "INSERT INTO events(
-                EventID,
-                Title,
-                Schedule,
-                Description,
-                eventImage,
-                AuthorID,
-                ) values(?,?,?,?,?,?);";
+            $sql = "INSERT INTO events(event_id, event_title, schedule, description, event_image, AuthorID) VALUES (?, ?, ?, ?, ?, ?)";
 
             $stmt = mysqli_prepare($conn, $sql);
             mysqli_stmt_bind_param($stmt, "sssssi", $eventId, $title, $schedule, $description, $eventImageUrl, $author);
             $res = mysqli_stmt_execute($stmt);
 
             if ($res) {
-                $sm = "The Event succcessfully created!";
+                $sm = "The Event successfully created!";
                 header("Location: ../addEvent.php?success=$sm");
             } else {
-                $em = "Unknown Error Ocurred!";
+                $em = "Unknown Error Occurred!";
                 header("Location: ../addEvent.php?error=$em");
                 exit();
             }
         }
     } else {
-        header("Location ../adminLogin.php");
+        header("Location: ../adminLogin.php");
     }
+} else {
+    header("Location: ../adminLogin.php");
+    exit;
 }
+?>

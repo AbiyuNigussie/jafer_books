@@ -42,7 +42,7 @@ if (($_SERVER["REQUEST_METHOD"] == "POST")) {
                 $_SESSION['userEmail'] = $userEmail;
                 $_SESSION['userRole'] = $userRole;
                 if ($userRole == 'employee') {
-                    header("Location: ../adminEvents.php");
+                    header("Location: ../adminAuthor.php");
                 } else {
 
                     header("Location: ../adminBooks.php");

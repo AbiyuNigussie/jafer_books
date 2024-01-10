@@ -12,7 +12,7 @@
 
             if ($_SESSION['userRole'] == 'admin') {
             ?>
-                <a href="./adminBooks.php">
+                <a href="adminBooks.php">
                     <i class="fa-solid fa-book"></i> Books
                 </a>
                 <a href="#">
@@ -21,10 +21,18 @@
                 <a href="#">
                     <i class="fa-solid fa-users"></i> Users
                 </a>
+                <a href="adminCatagory.php">
+                    <i class="fa-solid fa-cart-shopping"></i>Catagories
+                </a>
+                
             <?php } ?>
+            <a href="adminAuthor.php">
+                    <i class="fa-solid fa-cart-shopping"></i>Authors
+                </a>
             <a href="./adminEvents.php">
                 <i class="fa-regular fa-calendar-days"></i>Events
             </a>
+
 
         </div>
     </div>
