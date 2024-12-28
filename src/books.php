@@ -58,7 +58,7 @@ $categories = getAllCategories($conn);
                 foreach ($booksByCat as $book) {
                   $bookAuthor = getAuthorById($conn, $book['AuthorID']);
                 ?>
-                  <?= $book['bookID'] ?>" 
+                  <a href="bookItem.php?bookId=<?= $book['BookID'] ?>">
                     <div class="img-cont">
                       <img src="../uploads/cover/<?= $book["CoverImageURL"] ?>" />
                     </div>
